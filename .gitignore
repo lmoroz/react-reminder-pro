@@ -5,6 +5,7 @@
 
 # testing
 /coverage
+/issues
 
 # misc
 .DS_Store
