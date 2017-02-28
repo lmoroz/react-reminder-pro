@@ -101,13 +101,14 @@ class App extends Component {
                         deleteReminder={this.props.deleteReminder}
                         updateInterval="1000"
                     />
-                    <button
-                        className="btn btn-danger"
-                        type="button"
-                        onClick={() => this.props.clearReminders()}
-                    >
-                        Clear all
-                    </button>
+                    {this.props.reminders.length > 1 &&
+                        <button
+                            className="btn btn-danger"
+                            type="button"
+                            onClick={() => this.props.clearReminders()}
+                        >
+                            Clear all
+                    </button>}
                 </div>
             </div>
         );
