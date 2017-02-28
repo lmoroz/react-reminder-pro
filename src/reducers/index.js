@@ -1,4 +1,4 @@
-import { ADD_REMINDER, DELETE_REMINDER } from '../constants';
+import { ADD_REMINDER, DELETE_REMINDER, CLEAR_REMINDERS } from '../constants';
 
 const reminder = (action) => ({
     text: action.text,
@@ -23,6 +23,10 @@ const Reminders = (state = [], action) => {
             return reminders;
         case DELETE_REMINDER:
             reminders = removeByID(currentState, action.id);
+            localStorage.setItem('remindlist', JSON.stringify(reminders));
+            return reminders;
+        case CLEAR_REMINDERS:
+            reminders = [];
             localStorage.setItem('remindlist', JSON.stringify(reminders));
             return reminders;
         default:

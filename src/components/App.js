@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment-timezone';
 import { connect } from 'react-redux';
-import { addReminder, deleteReminder } from '../actions';
+import { addReminder, deleteReminder, clearReminders } from '../actions';
 
 
 class App extends Component {
@@ -30,6 +30,7 @@ class App extends Component {
         );
         console.log('addReminder!', this.props.addReminder);
         if (e.type === 'submit') e.preventDefault();
+        this.taskInput.value = '';
     }
 
     deleteReminder (id) {
@@ -104,6 +105,13 @@ class App extends Component {
                         </button>
                     </div>
                     { this.renderReminders() }
+                    <button
+                        className="btn btn-danger"
+                        type="button"
+                        onClick={() => this.props.clearReminders()}
+                    >
+                        Clear all
+                    </button>
                 </div>
             </div>
         );
@@ -113,10 +121,11 @@ class App extends Component {
 App.propTypes = {
     addReminder: React.PropTypes.func.isRequired,
     deleteReminder: React.PropTypes.func.isRequired,
+    clearReminders: React.PropTypes.func.isRequired,
     reminders: React.PropTypes.array.isRequired,
 };
 
 
 export default connect((state) => ({
     reminders: state
-}), { addReminder, deleteReminder })(App);
+}), { addReminder, deleteReminder, clearReminders })(App);
