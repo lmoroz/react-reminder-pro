@@ -29,7 +29,7 @@ class RemindersList extends React.Component {
                             <div className="list-item time">
                                 {
                                     moment(new Date(reminder.dueDate))
-                                    .locale('ru')
+                                    // .locale('ru')
                                     .fromNow()
                                 }
                             </div>
