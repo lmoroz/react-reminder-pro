@@ -1,6 +1,6 @@
 import { ADD_REMINDER, DELETE_REMINDER, CLEAR_REMINDERS } from '../constants';
 
-const reminder = (action) => ({
+const reminderAdd = (action) => ({
     text: action.text,
     id: Math.random(),
     done: false,
@@ -17,7 +17,7 @@ const Reminders = (state = [], action) => {
     const currentState = JSON.parse(localStorage.getItem('remindlist'));
     switch (action.type) {
         case ADD_REMINDER:
-            reminders = [...currentState, reminder(action)];
+            reminders = [...currentState, reminderAdd(action)];
             localStorage.setItem('remindlist', JSON.stringify(reminders));
             console.log('reminders as state', reminders);
             return reminders;

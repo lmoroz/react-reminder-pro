@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment-timezone';
 import { connect } from 'react-redux';
+import RemindersList from './Reminders';
 import { addReminder, deleteReminder, clearReminders } from '../actions';
 
 
@@ -75,7 +76,6 @@ class App extends Component {
     }
 
     render() {
-        console.log('Form render!', this.props);
         return (
             <div className="App">
                 <div className="App-title">
@@ -104,7 +104,11 @@ class App extends Component {
                             Add this
                         </button>
                     </div>
-                    { this.renderReminders() }
+                    <RemindersList
+                        reminders={this.props.reminders}
+                        deleteReminder={this.props.deleteReminder}
+                        updateInterval="1000"
+                    />
                     <button
                         className="btn btn-danger"
                         type="button"
