@@ -15,7 +15,6 @@ const removeByID = (state = [], id) => {
 const Reminders = (state = [], action) => {
     let reminders = null;
     let currentState = JSON.parse(localStorage.getItem('remindlist'));
-    currentState = currentState.sort((r1, r2) => r1.dueDate > r2.dueDate);
     switch (action.type) {
         case ADD_REMINDER:
             reminders = [...currentState, reminderAdd(action)];
