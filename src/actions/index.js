@@ -11,14 +11,9 @@ export const deleteReminder = (id) => {
         type: DELETE_REMINDER,
         id
     };
-    console.log('action in deleteReminder', action);
     return action;
 };
 
 export const clearReminders = () => ({
     type: CLEAR_REMINDERS
 });
-
-// export default addReminder;
-// export { addReminder };
-// export { addReminder as default };

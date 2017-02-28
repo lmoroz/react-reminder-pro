@@ -13,7 +13,6 @@ class RemindersList extends React.Component {
     }
 
     render () {
-        // console.log('reminders render!', this.props);
         const { reminders, deleteReminder } = this.props;
         return (
             <ul className="list-group">

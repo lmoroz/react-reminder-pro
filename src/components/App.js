@@ -11,16 +11,10 @@ class App extends Component {
         this.state = {
             disabled: true
         };
-        // this.addReminder = this.addReminder.bind(this);
         this.addCheckActive = this.addCheckActive.bind(this);
     }
 
-    componentWillMount () {
-        moment.tz.setDefault('Asia/Irkutsk');
-        // console.log('App componentWillMount');
-    }
     componentDidMount () {
-        // console.log('App componentDidMount');
         this.taskInput.focus();
     }
 
@@ -29,13 +23,12 @@ class App extends Component {
             this.taskInput.value,
             moment(this.timeInput.value).toDate()
         );
-        console.log('addReminder!', this.props.addReminder);
         if (e.type === 'submit') e.preventDefault();
         this.taskInput.value = '';
+        this.setState({disabled: true});
     }
 
     deleteReminder (id) {
-        console.log('deleting in application', id);
         this.props.deleteReminder(id);
     }
 
@@ -49,7 +42,6 @@ class App extends Component {
 
     renderReminders() {
         const { reminders } = this.props;
-        // console.log('renderReminders!', this);
         return (
             <ul className="list-group">
                 {
