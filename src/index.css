@@ -1,0 +1,25 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.App-title {
+    font-size: 26px;
+}
+
+.reminder-form {
+    padding: 5px;
+}
+
+.reminder-form input {
+    margin: 5px;
+}
+
+.reminder-form .time {
+    font-size: 85%;
+    opacity: 0.5;
+    font-style: italic;
+}
